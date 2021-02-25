@@ -1,0 +1,33 @@
+<header class="header">
+  <h1>💰 CryptoNG 🤑</h1>
+  <small>Precios de criptomonedas de hoy por capitalización de mercado</small>
+</header>
+<section class="section">
+
+  <cdk-virtual-scroll-viewport style="height: 300px;width: auto;" [itemSize]="20">
+    <table style="width:100%">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Ultimas 24h</th>
+        <th>Ultimos 7D</th>
+      </tr>
+      <tr *ngFor="let crypto of cryptos | async; let i = index ">
+        <td>{{i+1}}</td>
+        <td>{{crypto.name}}</td>
+        <td>{{crypto.quote.USD.price | currency}}</td>
+        <td>{{crypto.quote.USD.percent_change_24h | percent}}</td>
+        <td>{{crypto.quote.USD.percent_change_7d | percent}}</td>
+      </tr>
+    </table>
+  </cdk-virtual-scroll-viewport>
+
+  <!-- APPS -->
+
+
+</section>
+<footer class="footer">
+  <p><a href="https://aquiensistemas.com"> Aquí en sistemas</a> - 2021</p>
+  <small>Encuentra este proyecto en <a href="https://github.com/aquiensistemas/crypto-ng">GITHUB</a></small>
+</footer>
